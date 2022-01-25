@@ -28,13 +28,13 @@ jobs:
       -
         name: Build GHCR images
         env:
-          DOCKER_REPO: ghcr.io/efrecon/s3fs
+          DOCKER_REPO: ghcr.io/proorc/geesefs
           SOURCE_COMMIT: ${{ github.sha }}
         run: ./hooks/build
       -
         name: Push GHCR images
         env:
-          DOCKER_REPO: ghcr.io/efrecon/s3fs
+          DOCKER_REPO: ghcr.io/proorc/geesefs
           SOURCE_COMMIT: ${{ github.sha }}
         run: ./hooks/push
   hub:
@@ -55,13 +55,13 @@ jobs:
       -
         name: Build Docker Hub images
         env:
-          DOCKER_REPO: docker.io/efrecon/s3fs
+          DOCKER_REPO: docker.io/proorc/geesefs
           SOURCE_COMMIT: ${{ github.sha }}
         run: ./hooks/build
       -
         name: Push Docker Hub images
         env:
-          DOCKER_REPO: docker.io/efrecon/s3fs
+          DOCKER_REPO: docker.io/proorc/geesefs
           SOURCE_COMMIT: ${{ github.sha }}
         run: ./hooks/push
       -
@@ -72,5 +72,5 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          repository: efrecon/s3fs
+          repository: proorc/geesefs
           short-description: Mount S3 buckets from within a container and expose them to host/containers

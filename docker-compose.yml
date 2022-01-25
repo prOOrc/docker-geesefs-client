@@ -1,8 +1,8 @@
 version: '3.8'
 services:
-  s3fs:
-    container_name: s3fs
-    image: efrecon/s3fs:1.90
+  geesefs:
+    container_name: geesefs
+    image: proorc/geesefs:0.30.5
     restart: unless-stopped
     cap_add:
       - SYS_ADMIN
@@ -11,7 +11,7 @@ services:
     devices:
       - /dev/fuse
     volumes:
-      - './bucket:/opt/s3fs/bucket:rshared'
+      - './bucket:/opt/geesefs/bucket:rshared'
     environment:
       AWS_S3_BUCKET: '${AWS_S3_BUCKET}'
       AWS_S3_ACCESS_KEY_ID: '${AWS_S3_ACCESS_KEY_ID}'
@@ -19,8 +19,8 @@ services:
       AWS_S3_AUTHFILE: '${AWS_S3_AUTHFILE}'
       AWS_S3_SECRET_ACCESS_KEY_FILE: '${AWS_S3_SECRET_ACCESS_KEY_FILE}'
       AWS_S3_URL: '${AWS_S3_URL}'
-      AWS_S3_MOUNT: '/opt/s3fs/bucket'
-      S3FS_ARGS: ''
-      S3FS_DEBUG: 0
+      AWS_S3_MOUNT: '/opt/geesefs/bucket'
+      GEESEFS_ARGS: ''
+      GEESEFS_DEBUG: 0
       UID: 1000
       GID: 1000

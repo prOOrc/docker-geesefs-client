@@ -1,7 +1,7 @@
 #! /usr/bin/env sh
 
 PERIOD=${1:-60}
-DEST=${AWS_S3_MOUNT:-/opt/s3fs/bucket}
+DEST=${AWS_S3_MOUNT:-/opt/geesefs/bucket}
 
 if [ $UID -gt 0 ]; then
     RUN_AS=$UID
